@@ -1,0 +1,31 @@
+plugins {
+	id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	compile.exclude module: "slf4j-log4j12"
+}
+
+
+dependencies {
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+	compile group: 'io.netty', name: 'netty-all', version: '4.0.56.Final'
+	compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.11.4'
+	compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.64'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.28'
+	compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.28'
+	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.28'
+}
